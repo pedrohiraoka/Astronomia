@@ -9,7 +9,7 @@ import pylab as py
 import matplotlib.pyplot as plt
 import matplotlib.animation
 from matplotlib.lines import Line2D
-from tqdm.trange import trange
+from tqdm import trange
 
 # Physical constants and normalization
 G = 6.673e-11  # Gravitational constant (m^3 kg^-1 s^-2)
