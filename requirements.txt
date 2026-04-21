@@ -1,0 +1,15 @@
+# StellarSeeker - Requisitos
+
+# Bibliotecas principais
+lightkurve>=2.3.0
+matplotlib>=3.5.0
+numpy>=1.21.0
+scipy>=1.7.0
+astropy>=5.0.0
+
+# Utilitários
+jupyter>=1.0.0
+notebook>=6.4.0
+
+# Opcional para melhor performance
+numba>=0.55.0
