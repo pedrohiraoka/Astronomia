@@ -3,6 +3,9 @@ Simulation of gravitational interaction between Sun, Earth, and Super Jupiter.
 Uses Newton's Law of Universal Gravitation with RK4 numerical integration.
 """
 
+import matplotlib
+matplotlib.use('TkAgg')  # Use interactive backend
+
 from typing import Tuple
 import numpy as np
 import pylab as py
@@ -227,6 +230,9 @@ def main():
         fig, animate, frames=4000, interval=1, blit=False,
         fargs=(earth_pos, jupiter_pos, earth_line, jupiter_line, time_text)
     )
+    
+    # Keep reference to prevent garbage collection
+    plt.gcf().anim = anim
     
     plt.show()
 
