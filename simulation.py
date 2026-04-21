@@ -8,7 +8,7 @@ import numpy as np
 import pylab as py
 import matplotlib.pyplot as plt
 import matplotlib.animation
-import matplotlib.lines.Line2D
+from matplotlib.lines import Line2D
 from tqdm.trange import trange
 
 # Physical constants and normalization
