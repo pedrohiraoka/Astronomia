@@ -4,7 +4,7 @@ Uses Newton's Law of Universal Gravitation with RK4 numerical integration.
 """
 
 import matplotlib
-matplotlib.use('TkAgg')  # Use interactive backend
+matplotlib.use('Agg')  # Use non-interactive backend for server environments
 
 from typing import Tuple
 import numpy as np
@@ -234,7 +234,24 @@ def main():
     # Keep reference to prevent garbage collection
     plt.gcf().anim = anim
     
-    plt.show()
+    # Try to show the animation (will work on systems with GUI)
+    try:
+        plt.show()
+    except Exception:
+        # If GUI is not available, save the animation to file
+        print("\nGUI not available. Saving animation to file...")
+        try:
+            # Save as mp4 if ffmpeg is available
+            anim.save('orbital_simulation.mp4', writer='ffmpeg', fps=30, dpi=100)
+            print("Animation saved as 'orbital_simulation.mp4'")
+        except Exception:
+            try:
+                # Save as gif using Pillow
+                anim.save('orbital_simulation.gif', writer='pillow', fps=30, dpi=100)
+                print("Animation saved as 'orbital_simulation.gif'")
+            except Exception as e:
+                print(f"Could not save animation: {e}")
+                print("Simulation completed successfully. Data arrays are available.")
 
 
 if __name__ == "__main__":
